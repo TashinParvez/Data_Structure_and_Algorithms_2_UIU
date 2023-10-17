@@ -1,94 +1,81 @@
-
-//        ****************  Author :  Tashin.Parvez  *************************\
-//        ****************  Updated:    21-06-23     *************************\
+///.................*** بسم الله الرحمن الرحيم ***.................///
 
 #include <bits/stdc++.h>
-#define CRACKED return 0;
-
-#define PI 3.14159265358979323846
-
-// I/O :
-#define loop(n) for (int i = 0; i < n; i++) // 0 to n Input or Output
-#define output(x) cout << x << nl           // out
-#define printarray(arr, len)      \
-    for (int i = 0; i < len; i++) \
-    {                             \
-        cout << arr[i] << " ";    \
-        if (i + 1 == len)         \
-            cout << endl;         \
-    } // array print
-
-#define sq(x) ((x) * (x)) // x^2  square
-#define len(s) s.length()
-#define setDec(x) fixed << setprecision(x)
-
-#define YES printf("YES\n")
-#define Yes printf("Yes\n")
-#define NO printf("NO\n")
-#define No printf("No\n")
-
 using namespace std;
 
-/*
-    int n; cin>>n;
-    int arr[n];
-    for(auto &v : arr) cin>>v;
+#define ll long long int
+#define ull unsigned long long int
 
-
-    if(!(i&1))   //-------------- EVEN  (for even --->> i&1 == 0)
-        cout<<i<<nl;
-
-*/
-
-void solution()
+void inputArray(int A[], int n)
 {
+    for (int i = 0; i < n; i++)
+        cin >> A[i];
+}
 
-    /**
-     *
-     open eye means 1
-     closed eye means 0
-     left eye is the most significative eye
-     right eye is the least significative eye
-
-     Every blink this number is added and
-     when the crow screams,the sum is a result.
-
-     */
-
-    int sum = 0;
-    string s;
-    while (getline(cin, s))
+void outputArray(int A[], int n)
+{
+    for (int i = 0; i < n; i++)
     {
-        if (s == "caw caw" || s == "caw")
-            break;
-        int temp = 0;
-        if (s[0] == '*')
-            temp += 4;
-        if (s[1] == '*')
-            temp += 2;
-        if (s[2] == '*')
-            temp += 1;
-
-        sum += temp;
+        if (i != n - 1)
+            cout << A[i] << " ";
     }
-    cout << sum << endl;
+    cout << A[n - 1] << endl;
+}
+
+/// Start writing code from here...
+
+void Merge(int *A, int p, int q, int r)
+{
+    int n1 = q - p + 1;
+    int n2 = r - q;
+    int L[n1 + 1], R[n2 + 1];
+
+    for (int i = 0; i < n1; i++)
+        L[i] = A[p + i];
+    L[n1] = 999999;
+
+    for (int i = 0; i < n2; i++)
+        R[i] = A[q + 1 + i];
+    L[n2] = 999999;
+
+    int i = 0, j = 0, k = p;
+    while (k <= r)
+    {
+        if (L[i] <= R[j])
+        {
+            A[k] = L[i];
+            i++;
+        }
+        else
+        {
+            A[k] = R[j];
+            j++;
+        }
+        k++;
+    }
+}
+
+void mergeSort(int *A, int p, int r)
+{
+    if (p < r)
+    {
+        int q = (p + r) / 2;
+        mergeSort(A, p, q);
+        mergeSort(A, q + 1, r);
+        Merge(A, p, q, r);
+    }
 }
 
 int main()
 {
+    int n;
+    cin >> n;
+    int A[n];
+    inputArray(A, n);
 
-    // #ifdef TashinParvez
-    //     Read("input.txt");
-    //   //  Write("output.txt");
-    // #endif // TashinParvez
+    mergeSort(A, 0, n - 1);
+    outputArray(A, n);
 
-    int t = 3;
-    int c = 1;
-
-    while (t--)
-    {
-        solution();
-    }
-
-    CRACKED;
+    return 0;
 }
+
