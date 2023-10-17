@@ -10,7 +10,7 @@ void print1toN(int i, int n)
 {
     if (i > n)
         return;
-    else
+    else 
     {
         cout << i << nl;
         return print1toN(i + 1, n);

@@ -21,7 +21,7 @@ double calculatePower(int a, int b)
 
 int32_t main()
 {
-    int a, b;
+    int a, b; 
     cin >> a >> b;
 
     double ans = calculatePower(a, b);

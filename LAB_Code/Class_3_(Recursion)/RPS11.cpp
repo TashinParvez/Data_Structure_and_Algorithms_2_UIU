@@ -1,19 +1,36 @@
-//        ****************  Author :  Tashin.Parvez  *************************\
-//        ****************  Updated:    22-06-23     *************************\
-
-#include <bits/stdc++.h>
-#define CRACKED return 0;
-#define nl endl; // NewLine
+#include <iostream>
 using namespace std;
-
-int32_t main()
+struct MinMax
 {
-    string s;
-    cin >> s;
-    cout << "Given Str  =  " << s << nl;
-    
+    int minimum;
+    int maximum;
+};
 
-    cout << "Output Str =  " << s << nl;
+MinMax minMaxElement(int arr[], int currentIndex)
+{
+    if (currentIndex == 0)
+        return {arr[currentIndex], arr[currentIndex]};
+    else
+    {
+        int currentValue = arr[currentIndex];
+        MinMax friend_ = minMaxElement(arr, currentIndex - 1);
+        MinMax result = friend_; 
+        
+        if (currentValue < result.minimum)
+            result.minimum = currentValue;
+        else if (currentValue > result.maximum)
+            result.maximum = currentValue;
+        return result;
+    }
+}
 
-    CRACKED;
+int main()
+{
+    int arr[10] = {6, 9, 8, 4, 5, 1, 2, 3, 4, 5};
+    int n = 10;
+
+    MinMax result = minMaxElement(arr, n - 1);
+
+    cout << result.minimum << " " << result.maximum << endl;
+    return 0;
 }
