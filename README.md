@@ -1,4 +1,9 @@
 # Data_Structure_and_Algorithms_2_UIU
+
+![GitHub repo size](https://img.shields.io/github/repo-size/TashinParvez/Data_Structure_and_Algorithms_2_UIU)
+![GitHub contributors](https://img.shields.io/github/contributors/TashinParvez/Data_Structure_and_Algorithms_2_UIU)
+![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://github.com/TashinParvez/Data_Structure_and_Algorithms_2_UIU)
+
 Hey, folks! 
 
 This repository will be immensely helpful if you are taking a **Data Structure and Algorithm-II** course or practicing **DSA-2 topics**. This brief article is here to help you become familiar with its contents.
