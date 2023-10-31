@@ -218,16 +218,6 @@ void solution()
 
     cout << nl;
 
-    // cint =2
-
-    //    for (auto i : matrix) // kendro dhrotechi
-    //     {
-    //        if(!count)
-    //        {
-
-    //        }
-
-    //     }
 }
 
 int32_t main()
