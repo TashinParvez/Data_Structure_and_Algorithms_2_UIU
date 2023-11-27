@@ -108,7 +108,9 @@ int32_t main()
     //     cin >> arr[i];
     // }
 
-    int arr[n] = {-2, -5, 6, -2, -3, 1, 5, -6};
+    // int arr[n] = {-2, -5, 6, -2, -3, 1, 5, -6};
+    n = 5;
+    int arr[n] = {1, 2, 3, 4, 5};
 
     Result result = maximumSubArray(arr, 0, n - 1);
 
@@ -117,6 +119,3 @@ int32_t main()
 
     CRACKED;
 }
-
-
-

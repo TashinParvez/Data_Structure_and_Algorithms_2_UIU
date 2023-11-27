@@ -22,16 +22,16 @@ public:
 
 Result minMax(int arr[], int s, int e)
 {
-    if (e - s == 1 || s == e)
+    if (e - s == 1 || s == e) /// when array have 2 elements or one element
     {
-        Result result;
+        Result result; /// we can use pair also
         result.minimum = min(arr[s], arr[e]);
         result.maximum = max(arr[s], arr[e]);
         return result;
     }
     else
     {
-        int mid = s + (e - s) / 2;
+        int mid = s + (e - s) / 2; 
         Result leftSide = minMax(arr, s, mid);
         Result rightSide = minMax(arr, mid + 1, e);
 
@@ -56,10 +56,10 @@ int32_t main()
     // }
 
     n = 8;
-    // int arr[n] = {-2, -5, 6, -2, -3, 1, 5, -6};
+    int arr[n] = {-2, -5, 6, -2, -3, 1, 5, -6};
 
-    n = 10;
-    int arr[n] = {2, 5, 8, 3, 6, 9, 1, 4, 7, 0};
+    // n = 10;
+    // int arr[n] = {2, 5, 8, 3, 6, 9, 1, 4, 7, 0};
 
     Result result = minMax(arr, 0, n - 1);
 
