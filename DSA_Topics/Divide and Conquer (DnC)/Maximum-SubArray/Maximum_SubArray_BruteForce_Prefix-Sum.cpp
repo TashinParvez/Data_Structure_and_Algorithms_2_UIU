@@ -17,7 +17,6 @@ using namespace std;
 int32_t main()
 {
     int n;
-    n = 8;
 
     // cin >> n;
     // int arr[n];
@@ -26,7 +25,11 @@ int32_t main()
     //     cin >> arr[i];
     // }
 
-    int arr[8] = {-2, -5, 6, -2, -3, 1, 5, -6};
+    // n = 8;
+    // int arr[8] = {-2, -5, 6, -2, -3, 1, 5, -6};
+
+    n = 5;
+    int arr[n] = {1, 2, 3, 4, 5};
 
     int maxSum = INT_MIN;
 
@@ -34,11 +37,11 @@ int32_t main()
     {
         int sum = 0;
 
-        for (int j = i; j< n; j++)
+        for (int j = i; j < n; j++)
         {
             sum += arr[j];
-            if (sum > maxSum) 
-                maxSum = sum; 
+            if (sum > maxSum)
+                maxSum = sum;
         }
     }
 

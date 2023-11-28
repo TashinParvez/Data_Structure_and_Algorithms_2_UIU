@@ -31,7 +31,7 @@ Result minMax(int arr[], int s, int e)
     }
     else
     {
-        int mid = s + (e - s) / 2; 
+        int mid = s + (e - s) / 2;
         Result leftSide = minMax(arr, s, mid);
         Result rightSide = minMax(arr, mid + 1, e);
 
