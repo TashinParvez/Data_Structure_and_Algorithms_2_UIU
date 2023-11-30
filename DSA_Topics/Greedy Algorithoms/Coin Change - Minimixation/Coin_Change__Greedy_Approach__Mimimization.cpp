@@ -24,25 +24,27 @@ int coinChangeNaive(vector<int> coins, int amount) /// Bruteforce approach
     for (auto i : coins)
     {
         // cout << "Taken: " << amount / i << "  Coin: " << i << nl;
-        if (i > amount)
+
+        if (i > amount) /// Not take
         {
             continue;
         }
         else
         {
             int remainAmount = amount - i;
-            int friend_ = coinChangeNaive(coins, remainAmount);
+            int friend_ = coinChangeNaive(coins, remainAmount); /// take Option Running
 
             if (minCoins == -1)
             {
                 minCoins = friend_ + 1;
             }
-            else if (friend_ + 1 < minCoins)
+            else if (friend_ + 1 < minCoins) 
             {
                 minCoins = friend_ + 1;
             }
         }
     }
+
     return minCoins;
 }
 
@@ -57,7 +59,8 @@ pair<int, int> coinChangeGreedy(vector<int> coins, int amount) /// Greedy Approa
         count += amount / i;
         amount -= (amount / i) * i;
     }
-    return {amount, count};
+
+    return {amount, count}; /// returning left amount and total taken coins
 }
 
 int main()
@@ -66,7 +69,7 @@ int main()
     cout << "Enter numofCoins: ";
     cin >> totalCoins;
 
-    vector<int> coins;
+    vector<int> coins(totalCoins);
     cout << "Enter all coins: ";
     for (auto i = 0; i < totalCoins; i++)
     {
@@ -75,25 +78,32 @@ int main()
         coins.push_back(x);
     }
 
-    sort(coins.begin(), coins.end(), greater<int>()); // decending order Sort
+    sort(coins.begin(), coins.end(), greater<int>()); /// decending order Sort
 
     cout << "Enter amount to create: ";
     int amount;
     cin >> amount;
-    cout << nl;
 
+    ///
+    ///
+    ///
+
+    cout << nl;
     cout << "Greedy Approach: " << nl;
     cout << "----------------------------" << nl;
     pair<int, int> pr = coinChangeGreedy(coins, amount);
-    cout << nl << "Remain Amount: " << pr.first << nl << "Total coins taken: " << pr.second << nl << nl;
+
+    cout << nl << "Remaining Amounts: " << pr.first << nl;
+    cout << "Total coins taken: " << pr.second << nl << nl;
 
     ///
     ///
     ///
 
     // cout << nl << nl;
-    // cout << "Naive Approach: " << nl;
+    // cout << "Naive Approach: " << nl;   /// Bruteforce Approach
     // cout << "----------------------------" << nl;
+    //
     // int pr2 = coinChangeNaive(coins, amount);
     // cout << "Total coins taken: " << pr2 << nl << nl;
 
@@ -101,7 +111,7 @@ int main()
 }
 
 /*
-Case : 1
+------------------------- >>       Case : 1
 
 10
 1000
@@ -120,7 +130,7 @@ Case : 1
 */
 
 /*
-Case : 2
+------------------------- >>       Case : 2
 
 3
 25

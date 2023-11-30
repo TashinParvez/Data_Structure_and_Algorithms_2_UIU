@@ -11,12 +11,12 @@
 #define setDec(x) fixed << setprecision(x)
 #define len(s) s.length()
 #define deb(n) cout << "Tashin   " << #n << " = " << n << endl; // debug code
+#define debt cout << "Tashin   " << endl;                       // debug code
 
 using namespace std;
 
 int32_t main()
 {
-    cout << "TASHIN" << nl;
-
+    debt;
     CRACKED;
 }

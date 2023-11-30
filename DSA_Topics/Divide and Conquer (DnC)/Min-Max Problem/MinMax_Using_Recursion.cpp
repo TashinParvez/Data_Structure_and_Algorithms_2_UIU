@@ -32,7 +32,7 @@ Result minMax(int arr[], int index, int lastIndex)
     }
     else
     {
-        Result friend_ = minMax(arr, index + 1, lastIndex);
+        Result friend_ = minMax(arr, index + 1, lastIndex); /// Calling a Friend
 
         Result result;
         result.minimum = min(arr[index], friend_.minimum);
@@ -61,11 +61,10 @@ int32_t main()
 
     Result result = minMax(arr, 0, n - 1);
 
+    cout << nl;
     cout << "Minimum value " << result.minimum << nl;
-
     cout << "Maximum value " << result.maximum << nl;
-
-    CRACKED;
+    cout << nl;
 
     CRACKED;
 }

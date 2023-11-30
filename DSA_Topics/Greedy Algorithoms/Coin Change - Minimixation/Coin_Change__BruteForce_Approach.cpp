@@ -24,25 +24,39 @@ int coinChangeNaive(vector<int> coins, int amount) /// Bruteforce approach
     for (auto i : coins)
     {
         // cout << "Taken: " << amount / i << "  Coin: " << i << nl;
-        if (i > amount)
+
+        if (i > amount) /// Not Take
         {
             continue;
         }
         else
         {
+            /// take Option Solve
             int remainAmount = amount - i;
-            int friend_ = coinChangeNaive(coins, remainAmount);
+            int friend_ = coinChangeNaive(coins, remainAmount); /// friend wwill give me left amount solution
+            int totalAns = friend_ + 1;
 
-            if (minCoins == -1)
+            if (minCoins == -1) /// this will exicute when i able o take the needed amount
             {
-                minCoins = friend_ + 1;
+                minCoins = totalAns;
             }
-            else if (friend_ + 1 < minCoins)
+            else if (totalAns < minCoins)
             {
                 minCoins = friend_ + 1;
             }
         }
+        /*
+
+           In every iteration of the for loop
+           checking for the different coin take option
+           means in iteration I'm checking if I need first given amount and I will pick the ith coin first
+           and then call friend to solve for remaining ammount
+
+           ///-------->>  Tarek Sir 11 Nov Class
+
+        */
     }
+
     return minCoins;
 }
 

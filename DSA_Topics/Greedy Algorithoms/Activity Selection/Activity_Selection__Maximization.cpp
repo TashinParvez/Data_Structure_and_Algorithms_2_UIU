@@ -16,13 +16,14 @@ using namespace std;
 
 bool comperator(vector<int> &v1, vector<int> &v2)
 {
-    if (v1[1] < v2[1])
-        return true;
-    else
-        return false;
+    ///----->   Basic Code
+    // if (v1[1] < v2[1])
+    //     return true;
+    // else
+    //     return false;
 
-    // optimized
-    // return v1[1]<v2[1];
+    ///----->   Optimized
+    return v1[1] < v2[1];
 }
 
 int32_t main()
@@ -30,7 +31,8 @@ int32_t main()
     cout << "Enter total tasks: " << nl;
     int n;
     cin >> n;
-    vector<vector<int>> vii;
+
+    vector<vector<int>> vii(n); /// 2D vector = each index represent another vector(start time, end time)
 
     cout << "Enter n tasks start and end times: " << nl;
     for (int i = 0; i < n; i++)
@@ -59,6 +61,5 @@ int32_t main()
 
     cout << "Task Taken " << taskTaken << nl;
 
-     
     CRACKED;
 }

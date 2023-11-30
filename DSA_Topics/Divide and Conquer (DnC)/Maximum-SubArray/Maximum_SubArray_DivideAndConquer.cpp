@@ -18,19 +18,19 @@ class Result
 {
 public:
     int maxSum;
-    int leftindex;
-    int rightIndex;
+    int leftindex;  /// index
+    int rightIndex; /// index
 };
 
 Result crossingSum(int arr[], int left, int mid, int right)
 {
-    // checking left side
+    ///-------------------- checking left side
     Result result;
     int sum = 0;
     int lSum = INT_MIN;
     int index = mid;
-    while (index >= left)
-    {
+    while (index >= left) ///   It's imp to go from mid to left,
+    {                     ///   bcz in Crossing sum we take left + right part consicutive value
         sum += arr[index];
         if (sum > lSum)
         {
@@ -40,12 +40,12 @@ Result crossingSum(int arr[], int left, int mid, int right)
         index--;
     }
 
-    // checking right side
+    ///-------------------- checking right side
     sum = 0;
     int rSum = INT_MIN;
     index = mid + 1;
-    while (index <= right)
-    {
+    while (index <= right) ///   It's imp to go from mid+1 to right,
+    {                      ///   bcz in Crossing sum we take left + right part consicutive value
         sum += arr[index];
         if (sum > rSum)
         {
@@ -78,7 +78,7 @@ Result maximumSubArray(int arr[], int left, int right)
         Result rightSum = maximumSubArray(arr, mid + 1, right);
         Result crossSum = crossingSum(arr, left, mid, right);
 
-        // //--> Basic code
+        // ///--> Basic code
         // if (leftSum.maxSum >= rightSum.maxSum && leftSum.maxSum >= crossSum.maxSum)
         //     return leftSum;
         // else if (rightSum.maxSum >= leftSum.maxSum && rightSum.maxSum >= crossSum.maxSum)
@@ -86,6 +86,7 @@ Result maximumSubArray(int arr[], int left, int right)
         // else
         //     return crossSum;
 
+        ///--> More Mature code 
         if (max({leftSum.maxSum, rightSum.maxSum, crossSum.maxSum}) == leftSum.maxSum)
             return leftSum;
         else if (max({leftSum.maxSum, rightSum.maxSum, crossSum.maxSum}) == rightSum.maxSum)

@@ -20,7 +20,7 @@ public:
     int maximum;
 };
 
-Result minMax(int arr[], int s, int e)
+Result minMax(int arr[], int s, int e) /// DnC
 {
     if (e - s == 1 || s == e) /// when array have 2 elements or one element
     {
@@ -32,8 +32,9 @@ Result minMax(int arr[], int s, int e)
     else
     {
         int mid = s + (e - s) / 2;
-        Result leftSide = minMax(arr, s, mid);
-        Result rightSide = minMax(arr, mid + 1, e);
+
+        Result leftSide = minMax(arr, s, mid);      ///  calling Friend 1
+        Result rightSide = minMax(arr, mid + 1, e); ///  calling Friend 2 
 
         Result result;
         result.maximum = max(leftSide.maximum, rightSide.maximum);
@@ -47,7 +48,7 @@ int32_t main()
 {
     int n;
 
-    // //--> for user inputs
+    // ///---> for user inputs
     // cin >> n;
     // int arr[n];
     // for (int i = 0; i < n; i++)
@@ -56,16 +57,17 @@ int32_t main()
     // }
 
     n = 8;
-    int arr[n] = {-2, -5, 6, -2, -3, 1, 5, -6};
+    int arr[n] = {-2, -5, 6, -2, -3, 1, 5, -6}; /// TestCase 1
 
     // n = 10;
-    // int arr[n] = {2, 5, 8, 3, 6, 9, 1, 4, 7, 0};
+    // int arr[n] = {2, 5, 8, 3, 6, 9, 1, 4, 7, 0}; /// TestCase 2
 
     Result result = minMax(arr, 0, n - 1);
 
+    cout << nl;
     cout << "Minimum value " << result.minimum << nl;
-
     cout << "Maximum value " << result.maximum << nl;
+    cout << nl;
 
     CRACKED;
 }

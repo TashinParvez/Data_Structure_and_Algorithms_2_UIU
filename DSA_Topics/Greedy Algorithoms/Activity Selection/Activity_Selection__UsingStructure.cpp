@@ -14,14 +14,14 @@
 
 using namespace std;
 
-typedef struct Activities
+typedef struct Activities /// Container
 {
     string actNo;
     int startTime;
     int endTime;
 } Activity;
 
-bool compare(Activity a, Activity b)
+bool compare(Activity a, Activity b) /// Comperator
 {
     return a.endTime < b.endTime;
 }
@@ -31,7 +31,7 @@ int activitySelection(vector<Activity> activity)
     if (activity.size() == 0)
         return 0;
 
-    int cnt = 1;
+    int taskTaken_Counter = 1; /// always picked first task
     int freeTime = activity[0].endTime;
     cout << nl << "Activity Picked :  " << activity[0].actNo << " ";
 
@@ -40,11 +40,11 @@ int activitySelection(vector<Activity> activity)
         if (activity[i].startTime >= freeTime)
         {
             cout << activity[i].actNo << " ";
-            cnt++;
+            taskTaken_Counter++;
             freeTime = activity[i].endTime;
         }
     }
-    return cnt;
+    return taskTaken_Counter;
 }
 
 int32_t main()
@@ -82,6 +82,7 @@ a5 2 9
 a6 5 8
 a7 3 5
 a8 4 5
+
 
 ans: 3
 

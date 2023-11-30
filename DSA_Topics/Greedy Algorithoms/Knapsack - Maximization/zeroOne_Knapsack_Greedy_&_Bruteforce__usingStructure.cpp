@@ -27,9 +27,9 @@ bool compare(Product a, Product b) /// ascending order sort on basis of value/we
     return (a.value * b.weight) > (b.value * a.weight); /// to avoide Precision error
 }
 
-double fractionalKnapsack_Greedy(vector<Product> products, int capacity)
+int zeroOneKnapsack_Greedy(vector<Product> products, int capacity)
 {
-    double ans = 0;
+    int ans = 0;
     for (int i = 0; i < products.size(); i++)
     {
         if (products[i].weight <= capacity)
@@ -38,17 +38,38 @@ double fractionalKnapsack_Greedy(vector<Product> products, int capacity)
             ans += products[i].value;
             capacity -= products[i].weight;
         }
-        else
-        {
-            // cout << "Tashin" << nl;
-            cout << products[i].productID << " ";
-            ans += capacity * ((1.0 * products[i].value) / products[i].weight);
-            capacity = 0;
-            break;
-        }
     }
 
-    return ans;
+    return ans; ///   returning the profits
+}
+
+int zeroOneKnapsack_BruteForce(vector<Product> products, int capacity, int index)
+{
+    if (capacity == 0 || index == products.size()) /// no product remain or bag capacity = zero
+    {
+        return 0;
+    }
+
+    if (products[index].weight > capacity) /// Not Take Condition 
+    {
+        /// Skip the current product
+        int friend_ = zeroOneKnapsack_BruteForce(products, capacity, index + 1);
+        return friend_;
+    }
+    else
+    {
+        /// take the current product
+        int take = products[index].value;
+        int nibo_andFriend = zeroOneKnapsack_BruteForce(products, capacity - products[index].weight, index + 1); // calling friend
+        take += nibo_andFriend;
+
+        /// Skip the current product
+        int notTake = 0;
+        int niboNa_andFriend = zeroOneKnapsack_BruteForce(products, capacity, index + 1); // calling friend
+        notTake += niboNa_andFriend;
+
+        return max(take, notTake);
+    }
 }
 
 void printSortedProducts(vector<Product> products)
@@ -78,16 +99,37 @@ int32_t main()
         cin >> products[i].value;
         cin >> products[i].weight;
     }
+
     cout << "Enter bag size: ";
     int bagCapacity;
     cin >> bagCapacity; // bag size
 
-    sort(products.begin(), products.end(), compare);
+    sort(products.begin(), products.end(), compare); /// Soring in decending order based on value / weight
     printSortedProducts(products);
     cout << nl;
-    double ans;
 
-    ans = fractionalKnapsack_Greedy(products, bagCapacity); // value in bag
+    int ans;
+
+    ///
+    ///
+    ///
+
+    ///------------------------------------ Greedy
+    cout << "Greedy Approach: " << nl;
+    cout << "-----------------------" << nl;
+    ans = zeroOneKnapsack_Greedy(products, bagCapacity); // value in bag
+    cout << nl;
+    cout << "Value of the bag: " << ans << nl << nl << nl;
+
+    ///
+    ///
+    ///
+
+    ///------------------------------------- Bruteforce
+
+    cout << "BruteForce Approach: " << nl;
+    cout << "-----------------------" << nl;
+    ans = zeroOneKnapsack_BruteForce(products, bagCapacity, 0); // value in bag
     cout << "Value of the bag: " << ans << nl << nl;
 
     CRACKED;

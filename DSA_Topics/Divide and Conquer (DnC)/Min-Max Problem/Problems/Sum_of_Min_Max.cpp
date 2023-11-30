@@ -1,19 +1,17 @@
 // https://www.geeksforgeeks.org/problems/max-min/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=bottom_sticky_on_article
 
-
 //        ****************  Author :  Tashin.Parvez  ****************
 //        ************* United International University *************
 //        ****************  Updated:    27/10/23     ****************
 
 #include <bits/stdc++.h>
-#define    CRACKED        return 0;
-#define    nl             endl            // NewLine
+#define CRACKED return 0;
+#define nl endl // NewLine
 using namespace std;
 
-
 class Result
-{ 
-public: 
+{
+public:
     int mn;
     int mx;
 };
@@ -47,7 +45,7 @@ public:
     int findSum(int A[], int N)
     {
         Result result = minMax(A, 0, N - 1);
-        return result.mn + result.mx;
+        return result.mn + result.mx;       /// here is the thing
     }
 };
 
