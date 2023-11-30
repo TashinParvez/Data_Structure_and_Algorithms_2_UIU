@@ -28,44 +28,57 @@ int32_t main()
     int numOfProducts;
     cin >> numOfProducts;
 
-    vector<pair<int, int>> vii; // value weight
+    vector<pair<int, int>> vii; // value & weight
 
     cout << "Enter products value and weight: ";
 
     for (int i = 0; i < numOfProducts; i++)
     {
         int a, b;
-        cin >> a >> b; // value weight
+        cin >> a >> b; // value & weight
         vii.push_back({a, b});
     }
 
     sort(vii.begin(), vii.end(), compare);
 
-    // for sort check
-    // for (int i = 0; i < numOfProducts; i++)
-    // {
-    //     cout << vii[i].first << "  " << vii[i].second << nl;
-    // }
+    /// for sort check
+    // for (int i = 0; i < numOfProducts; i++) 
+    //    cout << vii[i].first << "  " << vii[i].second << nl;
     // cout << nl;
 
     cout << "Enter bag size: ";
-    int weight;
-    cin >> weight; // bag size
+    int bagCapacity;
+    cin >> bagCapacity; // bag size
 
     int ans = 0; // value in bag
 
     for (int i = 0; i < numOfProducts; i++)
     {
-        if (vii[i].second <= weight)
+        if (vii[i].second <= bagCapacity)
         {
             ans += vii[i].first;
-            weight -= vii[i].second;
+            bagCapacity -= vii[i].second;
         }
     }
 
     cout << nl << nl;
-    cout << "Space remain: " << weight << nl;
+    cout << "Space remain: " << bagCapacity << nl;
     cout << "value of the bag: " << ans << nl;
 
     CRACKED;
 }
+
+/*
+
+4
+
+1 1
+4 3
+5 4
+7 5
+
+7
+
+
+
+*/

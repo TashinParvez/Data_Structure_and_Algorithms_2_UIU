@@ -14,7 +14,7 @@
 
 using namespace std;
 
-int coinChangeNaive(vector<int> coins, int amount)
+int coinChangeNaive(vector<int> coins, int amount) /// Bruteforce approach
 {
     if (amount == 0)
         return 0;
@@ -46,20 +46,6 @@ int coinChangeNaive(vector<int> coins, int amount)
     return minCoins;
 }
 
-pair<int, int> coinChangeGreedy(vector<int> coins, int amount)
-{
-    int count = 0;
-
-    for (auto i : coins)
-    {
-        cout << "Taken: " << amount / i << "  Coin: " << i << nl;
-
-        count += amount / i;
-        amount -= (amount / i) * i;
-    }
-    return {amount, count};
-}
-
 int main()
 {
     int totalCoins;
@@ -75,18 +61,12 @@ int main()
         coins.push_back(x);
     }
 
-    sort(coins.begin(), coins.end(), greater<int>()); // decending order Sort
+    sort(coins.begin(), coins.end(), greater<int>()); /// decending order Sort
 
     cout << "Enter amount to create: ";
     int amount;
     cin >> amount;
     cout << nl;
-
-    pair<int, int> pr = coinChangeGreedy(coins, amount);
-    cout << "Greedy Approach: " << nl;
-    cout << nl << "Remain Amount: " << pr.first << nl << "Total coins taken: " << pr.second << nl << nl;
-
-    // cout << nl << nl;
 
     int pr2 = coinChangeNaive(coins, amount);
     cout << "Naive Approach: " << nl;
@@ -96,26 +76,7 @@ int main()
 }
 
 /*
-Case : 1
 
-10
-1000
-500
-200
-100
-50
-20
-10
-5
-2
-1
-
-52727
-
-*/
-
-/*
-Case : 2
 
 3
 25
