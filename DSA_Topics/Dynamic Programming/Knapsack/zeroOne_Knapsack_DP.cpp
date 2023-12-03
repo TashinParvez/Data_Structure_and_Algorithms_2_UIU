@@ -23,7 +23,7 @@ typedef struct Products
 int dpTable[100][100];
 ///       index  capacity
 
-int zeroOneKnapsack_BruteForce(vector<Product> products, int capacity, int index) //----> O(2^n)
+int zeroOneKnapsack_DP(vector<Product> products, int capacity, int index) //----> O(2^n) 
 {
     if (dpTable[index][capacity] != -1)
         return dpTable[index][capacity];
@@ -37,7 +37,7 @@ int zeroOneKnapsack_BruteForce(vector<Product> products, int capacity, int index
     if (products[index].weight > capacity) /// Not Take Condition
     {
         /// Skip the current product  = Not Take
-        int friend_ = zeroOneKnapsack_BruteForce(products, capacity, index + 1);
+        int friend_ = zeroOneKnapsack_DP(products, capacity, index + 1);
         dpTable[index][capacity] = friend_;
         return dpTable[index][capacity];
     }
@@ -46,13 +46,13 @@ int zeroOneKnapsack_BruteForce(vector<Product> products, int capacity, int index
         //
         /// take the current product
         int take = products[index].value;
-        int nibo_andFriend = zeroOneKnapsack_BruteForce(products, capacity - products[index].weight, index + 1); // calling friend
+        int nibo_andFriend = zeroOneKnapsack_DP(products, capacity - products[index].weight, index + 1); // calling friend
         take += nibo_andFriend;
 
         //
         /// Skip the current product = Not Take
         int notTake = 0;
-        int niboNa_andFriend = zeroOneKnapsack_BruteForce(products, capacity, index + 1); // calling friend
+        int niboNa_andFriend = zeroOneKnapsack_DP(products, capacity, index + 1); // calling friend
         notTake += niboNa_andFriend;
 
         dpTable[index][capacity] = max(take, notTake);
@@ -91,7 +91,7 @@ int32_t main()
 
     memset(dpTable, -1, sizeof(dpTable));
 
-    ans = zeroOneKnapsack_BruteForce(products, bagCapacity, 0); // value in bag
+    ans = zeroOneKnapsack_DP(products, bagCapacity, 0); // value in bag
     cout << "Value of the bag: " << ans << nl << nl;
 
     CRACKED;
