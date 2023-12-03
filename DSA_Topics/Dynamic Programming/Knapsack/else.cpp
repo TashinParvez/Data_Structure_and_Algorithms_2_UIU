@@ -54,17 +54,19 @@ int knapSack(int W, int wt[], int val[], int n)
 // Driver Code
 int main()
 {
-    // int profit[] = { 60, 100, 120 };
-    // int weight[] = { 10, 20, 30 };
-    // int W = 50;
+    int profit[] = { 60, 100, 120 };
+    int weight[] = { 10, 20, 30 };
+    int W = 50; 
+    ///---> ans 220
 
     // int profit[] = {1, 2, 6, 5, 3};
     // int weight[] = {1, 6, 8, 9, 6};
     // int W = 11;
+    ///---> ans 7
 
-    int profit[] = {1, 4, 5, 7};
-    int weight[] = {1, 3, 4, 5};
-    int W = 7;
+    // int profit[] = {1, 4, 5, 7};
+    // int weight[] = {1, 3, 4, 5};
+    // int W = 7;
 
     int n = sizeof(profit) / sizeof(profit[0]);
     cout << knapSack(W, weight, profit, n);
