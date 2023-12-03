@@ -17,10 +17,8 @@ using namespace std;
 const int N = 1e5 + 2;
 int dpTable[N];
 
-int32_t main()
+int fib(int n) /// Bottom Up
 {
-    int n;
-    cin >> n;
     dpTable[1] = 0;
     dpTable[2] = 1;
 
@@ -29,7 +27,15 @@ int32_t main()
         dpTable[i] = dpTable[i - 1] + dpTable[i - 2];
     }
 
-    cout << "\n Fibonacci series " << n << "th element is : " << dpTable[n] << nl << nl;
+    return dpTable[n];
+}
+
+int32_t main()
+{
+    int n;
+    cin >> n;
+
+    cout << "\nFibonacci series " << n << "th element is : " << fib(n) << nl << nl;
 
     CRACKED;
 }

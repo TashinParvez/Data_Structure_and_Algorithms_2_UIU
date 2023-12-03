@@ -20,49 +20,44 @@ typedef struct Products
     int value;
 } Product;
 
-bool compare(Product a, Product b) /// ascending order sort on basis of value/weight
-{
-    // return (a.value / a.weight) > (b.value / b.weight); /// spmetimes it creat Precision error
-    return (a.value * b.weight) > (b.value * a.weight); /// to avoide Precision error
-}
+int dpTable[1000][1000];
+///       index  capacity
 
 int zeroOneKnapsack_BruteForce(vector<Product> products, int capacity, int index) //----> O(2^n)
 {
     if (capacity == 0 || index == products.size()) /// no product remain or bag capacity = zero
     {
+        dpTable[index][capacity] = 0;
         return 0;
     }
+    else if (dpTable[index][capacity] != -1)
+        return dpTable[index][capacity];
 
     if (products[index].weight > capacity) /// Not Take Condition
     {
         /// Skip the current product  = Not Take
         int friend_ = zeroOneKnapsack_BruteForce(products, capacity, index + 1);
+        dpTable[index][capacity] = friend_;
         return friend_;
     }
     else
     {
+        //
         /// take the current product
         int take = products[index].value;
         int nibo_andFriend = zeroOneKnapsack_BruteForce(products, capacity - products[index].weight, index + 1); // calling friend
         take += nibo_andFriend;
 
+        //
         /// Skip the current product = Not Take
         int notTake = 0;
         int niboNa_andFriend = zeroOneKnapsack_BruteForce(products, capacity, index + 1); // calling friend
         notTake += niboNa_andFriend;
 
-        return max(take, notTake);
-    }
-}
+        dpTable[index][capacity] = max(take, notTake);
 
-void printSortedProducts(vector<Product> products)
-{
-    cout << nl << "Sorted Products : ";
-    for (Product p : products)
-    {
-        cout << p.productID << " ";
+        return dpTable[index][capacity];
     }
-    cout << nl;
 }
 
 int32_t main()
@@ -87,31 +82,14 @@ int32_t main()
     int bagCapacity;
     cin >> bagCapacity; // bag size
 
-    sort(products.begin(), products.end(), compare); /// Soring in decending order based on value / weight
-    printSortedProducts(products);
-    cout << nl;
-
     int ans;
 
     ///
     ///
     ///
 
-    ///------------------------------------ Greedy
-    // cout << "Greedy Approach: " << nl;
-    // cout << "-----------------------" << nl;
-    // ans = zeroOneKnapsack_Greedy(products, bagCapacity); // value in bag
-    // cout << nl;
-    // cout << "Value of the bag: " << ans << nl << nl << nl;
+    memset(dpTable, -1, sizeof(dpTable));
 
-    ///
-    ///
-    ///
-
-    ///------------------------------------- Bruteforce
-
-    cout << "BruteForce Approach: " << nl;
-    cout << "-----------------------" << nl;
     ans = zeroOneKnapsack_BruteForce(products, bagCapacity, 0); // value in bag
     cout << "Value of the bag: " << ans << nl << nl;
 
@@ -127,7 +105,21 @@ p2 4 3
 p3 5 4
 p4 7 5
 
+
 7
 
+
+*/
+
+/*
+
+5
+p1 1 1
+p2 2 6
+p3 6 8
+p4 5 9
+p5 3 6
+
+11
 
 */
