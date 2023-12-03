@@ -20,25 +20,26 @@ typedef struct Products
     int value;
 } Product;
 
-int dpTable[1000][1000];
+int dpTable[100][100];
 ///       index  capacity
 
 int zeroOneKnapsack_BruteForce(vector<Product> products, int capacity, int index) //----> O(2^n)
 {
+    if (dpTable[index][capacity] != -1)
+        return dpTable[index][capacity];
+
     if (capacity == 0 || index == products.size()) /// no product remain or bag capacity = zero
     {
         dpTable[index][capacity] = 0;
         return 0;
     }
-    else if (dpTable[index][capacity] != -1)
-        return dpTable[index][capacity];
 
     if (products[index].weight > capacity) /// Not Take Condition
     {
         /// Skip the current product  = Not Take
         int friend_ = zeroOneKnapsack_BruteForce(products, capacity, index + 1);
         dpTable[index][capacity] = friend_;
-        return friend_;
+        return dpTable[index][capacity];
     }
     else
     {
