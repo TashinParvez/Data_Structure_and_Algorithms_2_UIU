@@ -11,11 +11,10 @@
 #define setDec(x) fixed << setprecision(x)
 #define len(s) s.length()
 #define deb(n) cout << "Tashin   " << #n << " = " << n << endl; // debug code
-
 #define int long long
-const int N = 1e5 + 2;
 using namespace std;
 
+const int N = 1e5 + 2;
 int dpTable[N];
 
 int32_t main()

@@ -11,21 +11,19 @@
 #define setDec(x) fixed << setprecision(x)
 #define len(s) s.length()
 #define deb(n) cout << "Tashin   " << #n << " = " << n << endl; // debug code
-
 #define int long long
-const int N = 1e5 + 2;
 using namespace std;
 
-
+const int N = 1e5 + 2;
 int dpTable[N];
 
-int fib(int n)
+int fib(int n) /// Top-Down Approach
 {
     if (dpTable[n] > -1)
         return dpTable[n];
-    else if (n == 2)
+    else if (n == 2) /// Base Case
         return 1;
-    else if (n == 1)
+    else if (n == 1) /// Base Case
         return 0;
     else
     {
@@ -46,6 +44,10 @@ int32_t main()
     {
         dpTable[i] = -1;
     }
+
+    memset(dpTable, -1, sizeof(dpTable));
+
+    
 
     int num = fib(n);
     cout << "\n Fibonacci series " << n << "th element is : " << num << nl << nl;
