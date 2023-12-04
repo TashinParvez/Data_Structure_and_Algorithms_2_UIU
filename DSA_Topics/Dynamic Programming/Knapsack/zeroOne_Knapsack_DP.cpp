@@ -23,7 +23,7 @@ typedef struct Products
 int dpTable[100][100];
 ///       index  capacity
 
-int zeroOneKnapsack_DP(vector<Product> products, int capacity, int index) //----> O(2^n) 
+int zeroOneKnapsack_DP(vector<Product> products, int capacity, int index) //----> O(2^n)
 {
     if (dpTable[index][capacity] != -1)
         return dpTable[index][capacity];
@@ -92,7 +92,7 @@ int32_t main()
     memset(dpTable, -1, sizeof(dpTable));
 
     ans = zeroOneKnapsack_DP(products, bagCapacity, 0); // value in bag
-    cout << "Value of the bag: " << ans << nl << nl;
+    cout << nl << "Value of the bag: " << ans << nl << nl;
 
     CRACKED;
 }
