@@ -1,5 +1,7 @@
 RemoveexeFile.c
 RemoveexeFile.exe
+.gitignore
+else.cpp
 *.exe
 *.vscode
 *.cph
