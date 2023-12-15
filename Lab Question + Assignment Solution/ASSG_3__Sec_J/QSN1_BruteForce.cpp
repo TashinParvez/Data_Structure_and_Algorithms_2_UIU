@@ -52,8 +52,8 @@ int32_t main()
     vector<int> visited(numOfVertices, 0);
 
     int cnt = 0;
-    int i = 0;
-    int cost = 1;
+    int i = 0;   /// to iterate edges
+    int cost = 1;  /// cost 
 
     while (cnt < numOfVertices)
     {
@@ -67,12 +67,14 @@ int32_t main()
                 visited[edges[i].u] = 1;
                 cnt++;
             }
+
             if (visited[edges[i].v] == 0)
             {
                 visited[edges[i].v] = 1;
                 cnt++;
             }
         }
+        
         i++;
     }
 
