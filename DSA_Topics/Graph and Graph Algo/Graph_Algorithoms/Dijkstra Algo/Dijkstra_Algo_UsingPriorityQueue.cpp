@@ -3,6 +3,8 @@
 //        ************* United International University *************
 //        ****************  Updated:    27/10/23     ****************
 
+//    https://www.youtube.com/watch?v=F3PNsWE6_hM
+
 #include <bits/stdc++.h>
 #define CRACKED return 0;
 #define nl endl // NewLine
@@ -65,7 +67,8 @@ void Dijkstra(vector<Edge> Graph[], int V, int source)
 
     auto compare = [&](Ndistance a, Ndistance b) /// lamda func for compare
     {
-        if (a.distance <= b.distance)
+        if (a.distance <= b.distance) /// check the return type
+                                      /// priority queue returen type is diff from other's normal logic
             return false;
         else
             return true;
@@ -123,7 +126,7 @@ int main()
     cin >> V >> E;
 
     vector<Edge> Graph[V]; /// node & distance
-    
+
     cout << "Enter all edges form u to v and weight: " << nl;
 
     for (int i = 0; i < E; i++)

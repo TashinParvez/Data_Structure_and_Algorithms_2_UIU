@@ -43,7 +43,8 @@ void Dijkstra(vector<Edge> Graph[], int V, int source)
 
     auto compare = [&](Ndistance a, Ndistance b)
     {
-        if (a.distance <= b.distance)
+        if (a.distance <= b.distance) /// check the return type
+                                      /// priority queue returen type is diff from other's normal logic
             return false;
         else
             return true;
