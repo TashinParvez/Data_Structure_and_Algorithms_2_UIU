@@ -19,30 +19,31 @@ using namespace std;
 
 vector<int> dijkstraAlgo_UsingSet(map<int, vector<pair<int, int>>> adj, int totalVertices, int totalEdges, int source)
 {
-    vector<int> distance(totalVertices); /// store all distance from the source to particular node
+    vector<int> distance(totalVertices); /// (Output Vector) store all distance from the source to particular node
     for (auto i : distance)
     {
-        i = INT_MAX;
+        i = INT_MAX; /// can't reach
     }
     distance[source] = 0; /// source to source distance = 0
 
     set<pair<int, int>> st;
-    ///   distance v-Node
+    // <distance  &  v-Node>
 
     st.insert({0, source});
 
     while (!st.empty())
     {
         auto top = *(st.begin());
+
         int dis = top.first; /// distance from source to u
-        int u = top.second;  /// New Node
+        int u = top.second;  /// New Node  I will reach, So now I will go somewhere from this node
 
         st.erase(st.begin()); /// remove top cz this edge is picked
 
         for (auto i : adj[u])
         {
             int v = i.first;                  /// want to go next
-            if (distance[v] > dis + i.second) /// distance from source to v
+            if (distance[v] > dis + i.second) /// distance[v] = ??
                                               /// dis + i.second = (distance of source to u + dis of u to v)
             {
                 auto record = st.find({distance[v], v});
@@ -55,7 +56,7 @@ vector<int> dijkstraAlgo_UsingSet(map<int, vector<pair<int, int>>> adj, int tota
                 distance[v] = dis + i.second;
 
                 /// push new record
-                st.insert({distance[v], v});
+                st.insert({distance[v], v}); /// From u --> v
             }
         }
     }
@@ -94,6 +95,7 @@ int32_t main()
         cout << "Enter which nodes SSSP you want to know from source(u)= " << source << "  : ";
         int v;
         cin >> v;
+
         if (v == -1)
             break;
         cout << "Distance form (" << source << " to " << v << ") is " << distance[v] << nl << nl;
