@@ -22,6 +22,38 @@ bool compare(pair<int, int> a, pair<int, int> b)
     return v1 > v2;
 }
 
+pair<int, int> zeroOneKnapsack(vector<pair<int, int>> vii, int bagCapacity)
+{
+    sort(vii.begin(), vii.end(), compare);
+
+    //// for sort check
+    // for (int i = 0; i < numOfProducts; i++)
+    //    cout << vii[i].first << "  " << vii[i].second << nl;
+    // cout << nl;
+
+    pair<int, int> solve; /// just for return Type
+
+    int profit = 0;
+
+    for (int i = 0; i < vii.size(); i++)
+    {
+        if (vii[i].second > bagCapacity)
+        {
+            continue;
+        }
+        else if (vii[i].second <= bagCapacity)
+        {
+            profit += vii[i].first;
+            bagCapacity -= vii[i].second;
+        }
+    }
+
+    solve.first = bagCapacity; /// Bag remain capacity
+    solve.second = profit;     /// total Profit
+
+    return solve;
+}
+
 int32_t main()
 {
     cout << "Enter num of products: ";
@@ -39,31 +71,15 @@ int32_t main()
         vii.push_back({a, b});
     }
 
-    sort(vii.begin(), vii.end(), compare);
-
-    /// for sort check
-    // for (int i = 0; i < numOfProducts; i++) 
-    //    cout << vii[i].first << "  " << vii[i].second << nl;
-    // cout << nl;
-
     cout << "Enter bag size: ";
     int bagCapacity;
     cin >> bagCapacity; // bag size
 
-    int ans = 0; // value in bag
-
-    for (int i = 0; i < numOfProducts; i++)
-    {
-        if (vii[i].second <= bagCapacity)
-        {
-            ans += vii[i].first;
-            bagCapacity -= vii[i].second;
-        }
-    }
+    pair<int, int> solve = zeroOneKnapsack(vii, bagCapacity); /// call zeroOne Knapsack Func
 
     cout << nl << nl;
-    cout << "Space remain: " << bagCapacity << nl;
-    cout << "value of the bag: " << ans << nl;
+    cout << "Space remain: " << solve.first << nl;
+    cout << "value of the bag: " << solve.second << nl;
 
     CRACKED;
 }

@@ -19,17 +19,23 @@ int dpTable[N];
 
 int fib(int n) /// Top-Down Approach
 {
-    if (dpTable[n] > -1)
+    if (dpTable[n] > -1) ///--> Memorization
         return dpTable[n];
-    else if (n == 2) /// Base Case
-        return 1;
-    else if (n == 1) /// Base Case
-        return 0;
+    else if (n == 2) /// -->  Base Case
+    {
+        dpTable[n] = 1;
+        return dpTable[n];
+    }
+    else if (n == 1) /// -->  Base Case
+    {
+        dpTable[n] = 0;
+        return dpTable[n];
+    }
     else
     {
         int friend1 = fib(n - 1);
         int friend2 = fib(n - 2);
-        dpTable[n] = friend1 + friend2;
+        dpTable[n] = friend1 + friend2; /// storing for reuse
 
         return dpTable[n];
     }
@@ -45,11 +51,10 @@ int32_t main()
         dpTable[i] = -1;
     }
 
-    memset(dpTable, -1, sizeof(dpTable));
-
-    
+    memset(dpTable, -1, sizeof(dpTable)); /// set all value of dptable by -1
 
     int num = fib(n);
+
     cout << "\n Fibonacci series " << n << "th element is : " << num << nl << nl;
 
     CRACKED;

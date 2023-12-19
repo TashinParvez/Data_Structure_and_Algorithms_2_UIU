@@ -17,10 +17,10 @@ using namespace std;
 const int N = 1e5 + 2;
 int dpTable[N];
 
-int fib(int n) /// Bottom Up
+int fib(int n) /// Bottom Up (Iterative Method)
 {
-    dpTable[1] = 0;
-    dpTable[2] = 1;
+    dpTable[1] = 0; ///-->  base case
+    dpTable[2] = 1; ///-->  base case
 
     for (int i = 3; i <= n; i++)
     {

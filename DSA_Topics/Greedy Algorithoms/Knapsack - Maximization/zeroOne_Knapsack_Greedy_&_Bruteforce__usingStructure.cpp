@@ -47,13 +47,13 @@ int zeroOneKnapsack_BruteForce(vector<Product> products, int capacity, int index
 {
     if (capacity == 0 || index == products.size()) /// no product remain or bag capacity = zero
     {
-        return 0;
+        return 0; /// returning Profit = 0
     }
 
-    if (products[index].weight > capacity) /// Not Take Condition 
+    if (products[index].weight > capacity) /// Not Take Condition
     {
         /// Skip the current product
-        int friend_ = zeroOneKnapsack_BruteForce(products, capacity, index + 1);
+        int friend_ = zeroOneKnapsack_BruteForce(products, capacity, index + 1); /// Just Increment Index and Call Friend
         return friend_;
     }
     else

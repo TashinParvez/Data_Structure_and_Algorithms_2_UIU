@@ -35,7 +35,7 @@ int coinChange_DP(vector<int> coins, int amount) /// Bruteforce approach
         }
         else
         {
-            int remainAmount = amount - i;
+            int remainAmount = amount - i; /// take one piece coin
             int friend_ = coinChange_DP(coins, remainAmount); /// friend wwill give me left amount solution
             int totalAns = friend_ + 1;
 

@@ -33,7 +33,7 @@ int coinChangeNaive(vector<int> coins, int amount) /// Bruteforce approach
         {
             /// take Option Solve
             int remainAmount = amount - i;
-            int friend_ = coinChangeNaive(coins, remainAmount); /// friend wwill give me left amount solution
+            int friend_ = coinChangeNaive(coins, remainAmount); /// friend will give me left amount solution
             int totalAns = friend_ + 1;
 
             if (minCoins == -1) /// this will exicute when i able o take the needed amount
@@ -83,6 +83,7 @@ int main()
     cout << nl;
 
     int pr2 = coinChangeNaive(coins, amount);
+    
     cout << "Naive Approach: " << nl;
     cout << nl << "Total coins taken: " << pr2 << nl << nl;
 

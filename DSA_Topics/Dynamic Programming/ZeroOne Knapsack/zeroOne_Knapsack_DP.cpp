@@ -25,20 +25,20 @@ int dpTable[100][100];
 
 int zeroOneKnapsack_DP(vector<Product> products, int capacity, int index) //----> O(2^n)
 {
-    if (dpTable[index][capacity] != -1)
+    if (dpTable[index][capacity] != -1) /// memorization
         return dpTable[index][capacity];
 
     if (capacity == 0 || index == products.size()) /// no product remain or bag capacity = zero
     {
-        dpTable[index][capacity] = 0;
-        return 0;
+        dpTable[index][capacity] = 0;    /// storing
+        return dpTable[index][capacity]; /// can't able to take Products
     }
 
     if (products[index].weight > capacity) /// Not Take Condition
     {
-        /// Skip the current product  = Not Take
-        int friend_ = zeroOneKnapsack_DP(products, capacity, index + 1);
-        dpTable[index][capacity] = friend_;
+        /// Skip the current product  == Not Take
+        int friend_ = zeroOneKnapsack_DP(products, capacity, index + 1); /// just increase the index
+        dpTable[index][capacity] = friend_;                              /// storing
         return dpTable[index][capacity];
     }
     else
@@ -46,16 +46,16 @@ int zeroOneKnapsack_DP(vector<Product> products, int capacity, int index) //----
         //
         /// take the current product
         int take = products[index].value;
-        int nibo_andFriend = zeroOneKnapsack_DP(products, capacity - products[index].weight, index + 1); // calling friend
+        int nibo_andFriend = zeroOneKnapsack_DP(products, capacity - products[index].weight, index + 1); // calling friend [increase index  and  capacity decrease]
         take += nibo_andFriend;
 
         //
         /// Skip the current product = Not Take
         int notTake = 0;
-        int niboNa_andFriend = zeroOneKnapsack_DP(products, capacity, index + 1); // calling friend
+        int niboNa_andFriend = zeroOneKnapsack_DP(products, capacity, index + 1); // calling friend  [just --> increase index]
         notTake += niboNa_andFriend;
 
-        dpTable[index][capacity] = max(take, notTake);
+        dpTable[index][capacity] = max(take, notTake); /// takeing the max profit from (take or notTake) /// storing
 
         return dpTable[index][capacity];
     }
