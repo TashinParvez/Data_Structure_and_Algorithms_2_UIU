@@ -28,11 +28,15 @@ bool compare(Activity a, Activity b) /// Comperator
 
 int activitySelection(vector<Activity> activity)
 {
+
     if (activity.size() == 0)
         return 0;
 
+    sort(activity.begin(), activity.end(), compare);
+
     int taskTaken_Counter = 1; /// always picked first task
     int freeTime = activity[0].endTime;
+    
     cout << nl << "Activity Picked :  " << activity[0].actNo << " ";
 
     for (int i = 1; i < activity.size(); i++)
@@ -61,8 +65,6 @@ int32_t main()
         cin >> activity[i].startTime;
         cin >> activity[i].endTime;
     }
-
-    sort(activity.begin(), activity.end(), compare);
 
     int numberOftask = activitySelection(activity);
 

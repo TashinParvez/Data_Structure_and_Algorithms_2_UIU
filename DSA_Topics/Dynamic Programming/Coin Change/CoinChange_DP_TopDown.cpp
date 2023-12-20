@@ -16,30 +16,32 @@ using namespace std;
 
 int dpTable[1000];
 
-int coinChange_DP(vector<int> coins, int amount) /// Bruteforce approach
+int coinChange_DP(vector<int> &coins, int amount) /// Bruteforce approach
 {
     if (amount == 0)
         return 0;
+
     else if (dpTable[amount] != -1)
         return dpTable[amount];
 
-    int minCoins = -1;
+    int minCoins = -1; /// Not set Yet
 
     for (auto i : coins)
     {
         /// cout << "Taken: " << amount / i << "  Coin: " << i << nl;
 
-        if (i > amount)
+        if (i > amount) /// Can't able to take 
         {
             continue;
         }
         else
         {
-            int remainAmount = amount - i; /// take one piece coin
+            /// take option 
+            int remainAmount = amount - i;                    /// take one piece coin
             int friend_ = coinChange_DP(coins, remainAmount); /// friend wwill give me left amount solution
             int totalAns = friend_ + 1;
 
-            if (minCoins == -1) /// this will exicute when i able o take the needed amount
+            if (minCoins == -1) /// when value not set yet
             {
                 minCoins = totalAns;
             }

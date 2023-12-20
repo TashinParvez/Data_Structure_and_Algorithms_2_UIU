@@ -56,9 +56,10 @@ void Dijkstra(vector<Edge> Graph[], int V, int source)
 {
     int distance[V];
 
-    for (int i = 0; i < V; i++) /// making unreachable
+    for (int i = 0; i < V; i++) /// making all unreachable
         distance[i] = INF;
-    distance[source] = 0;
+
+    distance[source] = 0; /// Source to source distance = 0
 
     int parent[V];
 
@@ -81,15 +82,15 @@ void Dijkstra(vector<Edge> Graph[], int V, int source)
     while (PQ.empty() == false)
     {
         Ndistance temp = PQ.top(); /// take the lowest disteance element from the current pos
+        PQ.pop();
 
         int currentNode = temp.node;            /// reached node become Current Node
         int distanceFormSource = temp.distance; /// (source to u)
-        PQ.pop();
 
         for (Edge neighbor : Graph[currentNode]) /// node - weight ( (to & Cost )
         {
             ///      in Record       >    (source to u)   +  (u to v)
-            if (distance[neighbor.v] > distanceFormSource + neighbor.w)
+            if (distance[neighbor.v] > distanceFormSource + neighbor.w) /// If i can minimize the value to reach then it works
             {
                 distance[neighbor.v] = distanceFormSource + neighbor.w; /// Update Record
 
@@ -119,7 +120,6 @@ void Dijkstra(vector<Edge> Graph[], int V, int source)
 
 int main()
 {
-
     /// Dirrected Weighted Connected non-Negative Graph
     int V, E;
     cout << "\nEnter total vertex and total edges: ";

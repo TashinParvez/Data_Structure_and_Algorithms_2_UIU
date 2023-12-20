@@ -19,7 +19,7 @@ int dpTable[N];
 
 int fib(int n) /// Top-Down Approach
 {
-    if (dpTable[n] > -1) ///--> Memorization
+    if (dpTable[n] != -1) ///--> Memorization
         return dpTable[n];
     else if (n == 2) /// -->  Base Case
     {

@@ -19,7 +19,7 @@ int coinChangeNaive(vector<int> coins, int amount) /// Bruteforce approach
     if (amount == 0)
         return 0;
 
-    int minCoins = -1;
+    int minCoins = -1; /// Not set Yet
 
     for (auto i : coins)
     {
@@ -40,7 +40,7 @@ int coinChangeNaive(vector<int> coins, int amount) /// Bruteforce approach
             {
                 minCoins = totalAns;
             }
-            else if (totalAns < minCoins) 
+            else if (totalAns < minCoins)
             {
                 minCoins = friend_ + 1;
             }
@@ -51,6 +51,8 @@ int coinChangeNaive(vector<int> coins, int amount) /// Bruteforce approach
            checking for the different coin take option
            means in iteration I'm checking if I need first given amount and I will pick the ith coin first
            and then call friend to solve for remaining ammount
+
+           but but but the main amount is not canging in any loop iteraton cz in every iteration I'm picking the ith coin and always i need the same amount of money
 
            ///-------->>  Tarek Sir 11 Nov Class
 
@@ -83,7 +85,7 @@ int main()
     cout << nl;
 
     int pr2 = coinChangeNaive(coins, amount);
-    
+
     cout << "Naive Approach: " << nl;
     cout << nl << "Total coins taken: " << pr2 << nl << nl;
 

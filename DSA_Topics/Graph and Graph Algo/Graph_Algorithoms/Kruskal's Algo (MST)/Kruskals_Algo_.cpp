@@ -44,7 +44,7 @@ int findparent(int a) /// finding grand parent
         return a;
     else
     {
-        /// This is the Heuristic ( Pa}th Compression ) of Find Parent
+        /// This is the Heuristic ( Path Compression [Heuristic] ) of Find Parent
 
         int friend_ = findparent(parent[a]);
         parent[a] = friend_; /// this is doing to minimize the complexity for the same case in future
@@ -54,12 +54,12 @@ int findparent(int a) /// finding grand parent
 
 bool unionSet(int a, int b)
 {
-    int parentof_A = findparent(a);
-    int parentof_B = findparent(b);
+    int parentof_A = findparent(a); /// geitting parent of a
+    int parentof_B = findparent(b); /// getting parent of b
 
     if (parentof_A == parentof_B)
     {
-        return true;
+        return true; /// I can't take them
     }
     else
     {
@@ -100,7 +100,8 @@ int kruskalMST(vector<EdgeInfo> edges, int vertices)
     for (EdgeInfo edge : edges)
     {
         /// if their parent are not same then i have to take this edge
-        bool sameParent = unionSet(edge.u, edge.v); /// Checking parent same or not
+        bool sameParent = unionSet(edge.u, edge.v); /// Checking parent same or not (Its is checking that is these virtices are taken previous or not if taken then their parent's are same)
+
         /// parent same means i cant take them
 
         if (sameParent == false)
