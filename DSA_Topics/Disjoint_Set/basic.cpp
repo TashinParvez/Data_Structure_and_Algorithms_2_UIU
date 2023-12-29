@@ -7,46 +7,24 @@
 #define null NULL
 using namespace std;
 
-int parent[100];
+/** Disjoint Set - With Heuristic  **/
 
-// find function
-// return it's parent
-int find(int a)
-{
-    if (parent[a] == a)
-        return a;
-    else
-        return find(parent[a]);
-}
-
-// Union Function
-
-void unionSet(int a, int b)
-{
-    int u = parent[a];
-    int v = parent[b];
-    if (u == v)
-        cout << "They are in the same set" << nl;
-    else
-        parent[b] = a;
-}
-
-/** Disjoint Set Union - Start (Learn From Tarek Sir)**/
-
-int parent[107];
-int rank_[107];
+int parent[107]; /// To store parents
+int rank_[107];  /// store level
 
 void makeSet(int x)
 {
     parent[x] = x;
     rank_[x] = 0;
 }
+
 int findSet(int x)
 {
     if (parent[x] == x)
         return x;
     else
     {
+        /*    Path Comperssion (Heuristic PART)      */
         int friend_ = findSet(parent[x]);
         parent[x] = friend_;
         return friend_;
@@ -55,13 +33,15 @@ int findSet(int x)
 
 bool Union(int u, int v)
 {
-    int Ru = findSet(u);
+    int Ru = findSet(u); /// get parent
     int Rv = findSet(v);
 
     if (Ru == Rv)
-        return false;
+        return false; /// already Connected
     else
     {
+        /*       Rank By Union (Heuristic Part)          */
+
         if (rank_[Ru] > rank_[Rv])
         {
             parent[Rv] = Ru;
@@ -75,11 +55,10 @@ bool Union(int u, int v)
             parent[Rv] = Ru;
             rank_[Ru]++;
         }
+
         return true;
     }
 }
-
-/** Disjoint Set Union - End **/
 
 int32_t main()
 {
