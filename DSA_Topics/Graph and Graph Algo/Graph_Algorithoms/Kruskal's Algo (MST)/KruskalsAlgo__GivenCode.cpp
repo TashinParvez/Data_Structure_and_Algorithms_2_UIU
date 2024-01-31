@@ -86,6 +86,7 @@ int kruskalMST(vector<Edge> &edges, int V)
     return mstCost;
 }
 
+
 int main()
 {
     int V, E;
