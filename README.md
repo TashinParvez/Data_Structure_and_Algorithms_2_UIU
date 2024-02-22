@@ -46,6 +46,7 @@ First of all, you have seen 3 folders(DSA_Topics, LAB_Code, Lab Question + Assig
       - [Knuth-Morris-Pratt__KMP_Algo](https://github.com/TashinParvez/Data_Structure_and_Algorithms_2_UIU/tree/main/DSA_Topics/String%20Algorithoms/Knuth-Morris-Pratt__KMP_Algo)
 
 ___
+
 - **Lab Code**
   
   - [Class_1 (SPL Review Solution)](https://github.com/TashinParvez/Data_Structure_and_Algorithms_2_UIU/tree/main/LAB_Code/Class_1%20(SPL%20Review%20Solution))
@@ -55,6 +56,14 @@ ___
   - [Class_6](https://github.com/TashinParvez/Data_Structure_and_Algorithms_2_UIU/tree/main/LAB_Code/Class_6)
   - [Lab Final Fall23 Sec_B](https://github.com/TashinParvez/Data_Structure_and_Algorithms_2_UIU/tree/main/LAB_Code/Lab%20Final%20Fall23%20Sec_B)
 
+***
+
+- **Lab Question + Assignment Solution**
+   - [ASSG_3__Sec_J](https://github.com/TashinParvez/Data_Structure_and_Algorithms_2_UIU/tree/main/Lab%20Question%20%2B%20Assignment%20Solution/ASSG_3__Sec_J)
+  - [Assignment 01 (Greedy) Solve Sec J](https://github.com/TashinParvez/Data_Structure_and_Algorithms_2_UIU/tree/main/Lab%20Question%20%2B%20Assignment%20Solution/Assignment%2001%20(Greedy)%20Solve%20Sec%20J)
+  - [CT 01_TarekSir_Fall23_Sec_B](https://github.com/TashinParvez/Data_Structure_and_Algorithms_2_UIU/tree/main/Lab%20Question%20%2B%20Assignment%20Solution/CT%2001_TarekSir_Fall23_Sec_B)
+  - [CT 02 Tarek Sir Fall23 Sec B - On Greedy and DnC](https://github.com/TashinParvez/Data_Structure_and_Algorithms_2_UIU/tree/main/Lab%20Question%20%2B%20Assignment%20Solution/CT%2002%20Tarek%20Sir%20Fall23%20Sec%20B%20-%20On%20Greedy%20and%20DnC)
+  - [CT2_Sec_J](https://github.com/TashinParvez/Data_Structure_and_Algorithms_2_UIU/tree/main/Lab%20Question%20%2B%20Assignment%20Solution/CT2_Sec_J)
 
 
 
