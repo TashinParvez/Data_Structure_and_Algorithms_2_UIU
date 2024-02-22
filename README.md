@@ -9,6 +9,9 @@ Hey, folks!
 This repository will be immensely helpful if you are taking a **Data Structure and Algorithm-II** course or practicing **DSA-2 topics**. This brief article is here to help you become familiar with its contents.
 
 
+## Table of Contents
+First of all, you have seen 3 folders(DSA_Topics, LAB_Code, Lab Question + Assignment Solution).
+
  - **DSA_Topics**
     - [Disjoint_Set](https://github.com/TashinParvez/Data_Structure_and_Algorithms_2_UIU/tree/main/DSA_Topics/Disjoint_Set)
 
@@ -41,6 +44,7 @@ This repository will be immensely helpful if you are taking a **Data Structure a
 
     - [String Algorithoms](https://github.com/TashinParvez/Data_Structure_and_Algorithms_2_UIU/tree/main/DSA_Topics/String%20Algorithoms)
       - [Knuth-Morris-Pratt__KMP_Algo](https://github.com/TashinParvez/Data_Structure_and_Algorithms_2_UIU/tree/main/DSA_Topics/String%20Algorithoms/Knuth-Morris-Pratt__KMP_Algo)
+
 
 
 
