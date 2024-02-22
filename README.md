@@ -8,6 +8,16 @@ Hey, folks!
 
 This repository will be immensely helpful if you are taking a **Data Structure and Algorithm-II** course or practicing **DSA-2 topics**. This brief article is here to help you become familiar with its contents.
 
+If you are a student of DSA-1, you can check my [DSA-1 Repo](https://github.com/TashinParvez/DSA_1_UIU).
+
+
+## How This Repository Can Help You
+
+- **Quick Reference:** The repository can serve as a quick reference guide. You can easily find relevant code for DSA topics, saving time on online resource searches.
+- You will know which problems I solved before any of my exams; this will help you get an idea about the exam.
+- **You are getting more understandable code.**
+- **Coding Practice:** You can use the code for coding practice. You can modify and experiment with the code to reinforce your understanding of DSA topics.
+
 
 ## Table of Contents
 First of all, you have seen 3 folders(DSA_Topics, LAB_Code, Lab Question + Assignment Solution).
